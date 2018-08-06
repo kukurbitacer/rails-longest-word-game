@@ -1,0 +1,16 @@
+<h2>New game</h2>
+<div class="letter-container">
+<% @array_of_letters.each do |letter|%>
+<p class="letter"><%= letter %></p>
+<% end %>
+</div>
+
+<p id="tag-line">What is th longest word you can find?</p>
+<div class="form-container">
+<form action="/score" method="post">
+<%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+<%= hidden_field_tag :array, @array_of_letters%>
+<input type="text" name="word" class="field-rounded border-thin field-padding" id="word">
+<input type="submit" value="Play" class="border-thin field-padding" id="btn">
+</form>
+</div>
