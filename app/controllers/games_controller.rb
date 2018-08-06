@@ -21,7 +21,7 @@ class GamesController < ApplicationController
     elsif check_word(@word) == false
       @result = "Sorry but #{@word.capitalize} is not a valid english word"
     else
-      @result = "Congratulations! #{@word.capitalize} is a valid english word"
+      @result = "<strong>Congratulations!</strong> #{@word.capitalize} is a valid english word".html_safe
       @score = @word.length * @word.length
       session[:total_score] += @score
     end
